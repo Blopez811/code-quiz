@@ -4,9 +4,24 @@ var question1 = document.querySelector("#question1");
 var answers = document.querySelectorAll(".answer");
 var question2 = document.querySelector("#question2");
 var question3 = document.querySelector("#question3");
+var timerEl = document.querySelector("#timer");
+var timeLeft = 75;
+var downloadTimer = setInterval(function(){
+if(timeLeft <=0) {
+    clearInterval(downloadTimer);
+    document.querySelector("#timer").innerHTML = "Finished";
+}
+else {
+    document.querySelector("#timer").innerHTML = timeLeft; 
+}
+timeLeft -= 1; 
+}, 1000);
+
+
 var startQuiz = function () {
     quizInfo.classList.add("hide");
     question1.classList.remove("hide");
+
 }
 
 var answeredQuestion = function () {
