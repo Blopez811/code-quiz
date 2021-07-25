@@ -6,22 +6,20 @@ var question2 = document.querySelector("#question2");
 var question3 = document.querySelector("#question3");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
-var downloadTimer = setInterval(function(){
-if(timeLeft <=0) {
-    clearInterval(downloadTimer);
-    document.querySelector("#timer").innerHTML = "Finished";
-}
-else {
-    document.querySelector("#timer").innerHTML = timeLeft; 
-}
-timeLeft -= 1; 
-}, 1000);
-
 
 var startQuiz = function () {
     quizInfo.classList.add("hide");
     question1.classList.remove("hide");
-
+    var downloadTimer = setInterval(function(){
+        if(timeLeft <=0) {
+            clearInterval(downloadTimer);
+            document.querySelector("#timer").innerHTML = "Finished";
+        }
+        else {
+            document.querySelector("#timer").innerHTML = timeLeft; 
+        }
+        timeLeft -= 1; 
+        }, 1000);
 }
 
 var answeredQuestion = function () {
@@ -29,8 +27,9 @@ var answeredQuestion = function () {
     if (this.id == "b4") {
         console.log("Correct!");
     }
-    else if (this.id == "b1" || "b2" || "b3") {
-        console.log("Wrong!")
+    else {
+        console.log("Wrong!");
+        timeLeft = timeLeft - 10;
     }
 }
 
@@ -53,6 +52,7 @@ var answeredQuestion2 = function() {
     }
     else  {
         console.log("Wrong 2!");
+        timeLeft = timeLeft -10;
     }
 }
 
@@ -73,6 +73,7 @@ var answeredQuestions3 = function() {
     }
     else {
         console.log("Wrong 3!")
+        timeLeft = timeLeft - 10;
     }
 }
 
