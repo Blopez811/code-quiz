@@ -4,6 +4,7 @@ var question1 = document.querySelector("#question1");
 var answers = document.querySelectorAll(".answer");
 var question2 = document.querySelector("#question2");
 var question3 = document.querySelector("#question3");
+var finalScore = document.querySelector("#finalScore");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
 
@@ -67,7 +68,7 @@ for(var i = 4; i < 8; i++){
      answer.addEventListener("click", changeQuestion2);
  };
 
-var answeredQuestions3 = function() {
+var answeredQuestion3 = function() {
     if(this.id == "b11") {
         console.log("Correct!")
     }
@@ -77,8 +78,12 @@ var answeredQuestions3 = function() {
     }
 }
 
+var changeQuestion3 = function() {
+    question3.classList.add("hide");
+    finalScore.classList.remove("hide");
+}
 for(var i = 8; i < 12; i++){
     var answer = answers[i];
-     answer.addEventListener("click", answeredQuestions3);
-     //answer.addEventListener("click", changeQuestion2);
+     answer.addEventListener("click", answeredQuestion3);
+     answer.addEventListener("click", changeQuestion3);
  };
