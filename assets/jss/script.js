@@ -110,5 +110,12 @@ submitScore = function () {
     var playerInput = document.querySelector("#initials");
     playerScore.push(playerInput.value + timeLeft);
     localStorage.setItem("scores", JSON.stringify(playerScore));
+    var changeQuestions4 = function() {
+        finalScore.classList.add("hide");
+        highScore.classList.remove("hide");
+    }
+    changeQuestions4();
+
+    scoreList = document.querySelector("#displayScores");
 }
 document.querySelector("#submit").addEventListener("click", submitScore)
