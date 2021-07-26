@@ -1,3 +1,14 @@
 .hide {
     display:none;
 }
+
+.answer {
+    display:list-item;
+    background-color: purple;
+    color: white;
+}
+
+.btn {
+    background-color: purple;
+    color: white;
+}

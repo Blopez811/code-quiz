@@ -106,7 +106,6 @@ for (var i = 8; i < 12; i++) {
 };
 
 submitScore = function () {
-    event.preventDefault();
     var playerInput = document.querySelector("#initials");
     playerScore.push(playerInput.value + timeLeft);
     localStorage.setItem("scores", JSON.stringify(playerScore));
