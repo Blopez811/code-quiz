@@ -7,6 +7,7 @@ var question3 = document.querySelector("#question3");
 var finalScore = document.querySelector("#finalScore");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
+var finalScoreText = document.querySelector("#finalScoreText");
 
 var startQuiz = function () {
     quizInfo.classList.add("hide");
@@ -14,7 +15,13 @@ var startQuiz = function () {
     var downloadTimer = setInterval(function(){
         if(timeLeft <=0) {
             clearInterval(downloadTimer);
-            document.querySelector("#timer").innerHTML = "Finished";
+            question1.classList.add("hide");
+            question2.classList.add("hide");
+            question3.classList.add("hide");
+            finalScore.classList.remove("hide");
+            timerEl.classList.add("hide");
+            document.querySelector("#timer").innerHTML = 0;
+            document.querySelector("#finalScoreText").innerHTML= "You're score is " + 0 + "!";
         }
         else {
             document.querySelector("#timer").innerHTML = timeLeft; 
@@ -81,6 +88,8 @@ var answeredQuestion3 = function() {
 var changeQuestion3 = function() {
     question3.classList.add("hide");
     finalScore.classList.remove("hide");
+    finalScoreText.innerHTML = "You're score is " + timeLeft + "!";
+    timerEl.classList.add("hide");
 }
 for(var i = 8; i < 12; i++){
     var answer = answers[i];
